@@ -406,6 +406,7 @@ begin
       fBtnName.TextColor:=fKeyboardMat.Buttons.TextColor.Color;
       fBtnName.LabelColor:=fKeyboardMat.Buttons.TextColor.Color;
       fBtnName.FontSize:=fKeyboardMat.FontSize;
+      fBtnName.LabelSize:=fKeyboardMat.FontSize/1.25;
       //back up the texture, we be frawing our own text for awhile.. :(
     //  fBtnName.BtnBitMap.Resize(fKeyboardMat.LongRects.Texture.Width,fKeyboardMat.LongRects.Texture.Height);
       fBtnName.BtnBitMap.Assign(fKeyboardMat.LongRects.Texture);
@@ -414,23 +415,6 @@ begin
       fBtnName.LabelText:='Enter new string.';
       fBtnName.Opacity:=0.90;
 
-    {
-      fBtnName.LabelText.Font.Size:=fKeyboardMat.FontSize div 2;
-      fBtnName.LabelText.Font.Style:=[TFontStyle.fsBold];
-      fBtnName.LabelText.HorzTextAlign:=TTextAlign.Leading;
-      fBtnName.LabelText.MaterialSource:=fKeyboardMat.Buttons.TextColor;
-  //    fBtnName.LabelText.MaterialBackSource:=fKeyboardMat.tmButtons.mtTextColor;
-  //    fBtnName.LabelText.MaterialShaftSource:=fKeyboardMat.tmButtons.mtTextColor;
-      fBtnName.KeyLabel:='Changing..';
-
-      fBtnName.KeyText.Font.Size:=fKeyboardMat.FontSize+2;
-      fBtnName.KeyText.Font.Style:=[TFontStyle.fsBold];
-      fBtnName.KeyText.MaterialSource:=fKeyboardMat.Buttons.TextColor;
-   //   fBtnName.KeyText.MaterialBackSource:=fKeyboardMat.tmButtons.mtTextColor;
-   //   fBtnName.KeyText.MaterialShaftSource:=fKeyboardMat.tmButtons.mtTextColor;
-      fBtnName.RectButton.OnClick:=nil;//NameClick;//btnClick;
-      fBtnName.KeyText.Text:='';//GetKeyText(0,i);//default 1st menu
-     }
       setLength(fNavBtns,4);
            newx:=Round(newx+(aHeaderWidth/2)+(aButtonWidth/2)+aColGap+aBorder);
 
@@ -455,11 +439,6 @@ begin
              2:fNavBtns[i].Text:='>';
              3:fNavBtns[i].Text:='>>';
              end;
-         //  fNavBtns[i].fTxtButton.Font.Size:=fKeyboardMat.FontSize;
-         //  fNavBtns[i].fTxtButton.Font.Style:=[TFontStyle.fsBold];
-          // fNavBtns[i].fTxtButton.MaterialSource:=fKeyboardMat.Buttons.TextColor;
-  //         fNavBtns[i].fTxtButton.MaterialBackSource:=fKeyboardMat.tmButtons.mtTextColor;
-   //        fNavBtns[i].fTxtButton.MaterialShaftSource:=fKeyboardMat.tmButtons.mtTextColor;
            newx:=newx+aButtonWidth+aColGap;
          end;
 
