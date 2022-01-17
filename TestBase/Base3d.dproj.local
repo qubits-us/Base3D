@@ -3,7 +3,7 @@
 	<Transactions>
     <Transaction>2021/12/13 16:37:24.000.571,=C:\Users\user\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2022/01/15 19:46:11.000.652,=C:\Users\user\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/01/15 19:47:38.000.179,C:\GetIt\3dBase\TestBase\Base3d.dproj=C:\Users\user\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2022/01/15 19:47:38.000.179,C:\Users\user\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\GetIt\3dBase\TestBase\Base3d.dproj</Transaction>
     <Transaction>2022/01/15 19:47:50.000.588,=C:\GetIt\3dBase\TestBase\ufrmMain.pas</Transaction>
     <Transaction>2022/01/15 19:48:17.000.100,=C:\GetIt\3dBase\TestBase\dmMaterials.pas</Transaction>
     <Transaction>2022/01/15 19:48:28.000.395,=C:\GetIt\3dBase\TestBase\uScene3dMenu.pas</Transaction>
@@ -16,13 +16,14 @@
     <Transaction>2022/01/15 19:49:35.000.058,=C:\GetIt\3dBase\common\uNumSelectDlg.pas</Transaction>
     <Transaction>2022/01/15 19:50:56.000.716,=C:\GetIt\3dBase\common\uInertiaTimer.pas</Transaction>
     <Transaction>2022/01/15 20:10:06.000.479,=C:\GetIt\3dBase\TestBase\Unit1.pas</Transaction>
-    <Transaction>2022/01/15 20:11:00.000.694,C:\GetIt\3dBase\common\uDlg3dTextures.pas=C:\GetIt\3dBase\TestBase\Unit1.pas</Transaction>
+    <Transaction>2022/01/15 20:11:00.000.694,C:\GetIt\3dBase\TestBase\Unit1.pas=C:\GetIt\3dBase\common\uDlg3dTextures.pas</Transaction>
     <Transaction>2022/01/16 20:00:16.000.894,=C:\GetIt\3dBase\TestBase\Unit1.pas</Transaction>
-    <Transaction>2022/01/16 20:00:33.000.042,C:\GetIt\3dBase\TestBase\Unit1.pas=C:\GetIt\3dBase\TestBase\uGlobs.pas</Transaction>
+    <Transaction>2022/01/16 20:00:33.000.042,C:\GetIt\3dBase\TestBase\uGlobs.pas=C:\GetIt\3dBase\TestBase\Unit1.pas</Transaction>
   </Transactions>
 	<ActiveMobileDevice>
-		<NoProfile Android="2c00140600c507524ce" Android64=""/>
-	</ActiveMobileDevice>  <ProjectSortOrder AutoSort="0" SortType="0">
+		<NoProfile Android="2c00140600c507524ce" Android64="2c00140600c507524ce"/>
+	</ActiveMobileDevice>
+	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="annotation-1.2.0.dex.jar"/>
     <File Path="asynclayoutinflater-1.0.0.dex.jar"/>
     <File Path="billing-4.0.0.dex.jar"/>

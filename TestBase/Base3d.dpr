@@ -21,6 +21,7 @@ uses
 
 begin
   Application.Initialize;
+  Application.FormFactor.Orientations := [TFormOrientation.Landscape];
   Application.CreateForm(TMainFrm, MainFrm);
   Application.Run;
 end.
