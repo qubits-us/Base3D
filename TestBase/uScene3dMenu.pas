@@ -70,6 +70,8 @@ implementation
 
 
 
+
+
 constructor TDlgMenu.Create(aOwner: TComponent;aMenuMat:TDlgMaterial;
            aWidth: Single;aHeight: Single; aX: Single; aY: Single);
 var
@@ -371,10 +373,12 @@ begin
                    begin
                      fIm2.Bitmap.Assign(fMenuMat.BackImage);
                      fIm2.Bitmap.FlipVertical; // magic
+                     fIm2.Height:=Height;
+                     fIm.Height:=Height;
                      fIm.Position.X := 0;
                      fIm.Position.Y := 0;
                      // im 2 just off screen
-                     fIm2.Position.Y := ((Height) * -1)+2;
+                     fIm2.Position.Y := ((Height) * -1);
                      fIm2.Position.X := 0;
                      fIm2.Visible := true;
                    end;
@@ -389,7 +393,6 @@ begin
                      fImFa1.PropertyName := 'Position.Y';
                      fImFa1.StartValue :=0;
                      fImFa1.StopValue := Height;// + (Height / 2);
-                     fImFa1.Enabled := true;
                    end
                    else
                      fImFa1.Pause := false;
@@ -402,9 +405,10 @@ begin
                      fImFa2.Parent := fIm2;
                      fImFa2.Duration := 30;
                      fImFa2.PropertyName := 'Position.Y';
-                     fImFa2.StartValue := ((Height) * -1)+2;
+                     fImFa2.StartValue := ((Height) * -1);
                      fImFa2.StopValue :=0;
                      fImFa2.Enabled := true;
+                     fImFa1.Enabled := true;
                    end
                    else
                      fImFa2.Pause := false;
@@ -474,14 +478,15 @@ begin
                 fim.Position.Y:=(Height)*-1;
                 fImFa1.StartValue:=(Height)*-1;
                 fImFa1.StopValue:=0;
-                fImFa1.Enabled:=true;
+               // fImFa1.Enabled:=true;
                 fImFa1.Start;
                end else
                   begin
                    fImFa1.Tag:=0;
+                   fim.Position.Y:=0;
                    fImFa1.StartValue:=0;
                    fImFa1.StopValue:=Height;//+(Height/2);
-                   fImFa1.Enabled:=true;
+                  // fImFa1.Enabled:=true;
                    fImFa1.Start;
                   end;
 
@@ -521,15 +526,15 @@ begin
                 fim2.Position.Y:=0;
                 fImFa2.StartValue:=0;
                 fImFa2.StopValue:=Height;//+(Height/2);
-                fImFa2.Enabled:=true;
+               // fImFa2.Enabled:=true;
                 fImFa2.Start;
                end else
                   begin
                    fImFa2.Tag:=0;
-                   fim2.Position.Y:=((Height)*-1)-2;
-                   fImFa2.StartValue:=((Height)*-1)-2;//minus 2 gets rid of black line
-                   fImFa2.StopValue:=(Height);
-                   fImFa2.Enabled:=true;
+                   fim2.Position.Y:=((Height)*-1);
+                   fImFa2.StartValue:=((Height)*-1);//minus 2 gets rid of black line
+                   fImFa2.StopValue:=0;
+                   //fImFa2.Enabled:=true;
                    fImFa2.Start;
                   end;
 
