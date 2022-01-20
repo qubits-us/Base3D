@@ -15,7 +15,7 @@ uses
   FMX.MaterialSources,FMX.Objects, FMX.Dialogs,FMX.Layers3D,FMX.Objects3D,
   System.UIConsts,dmMaterials,System.SyncObjs, System.Math.Vectors,
   FMX.Controls3D,FMX.Platform{$IFDEF ANDROID},FMX.Platform.Android{$ENDIF}, uWorldAniDlg,
-  uDlg3dCtrls,uScene3dMenu,uBorgTestDlg,uCommon3dDlgs,uNumPadDlg,uNumSelectDlg,
+  uDlg3dCtrls,uScene3dMenu,uBorgTestDlg,uCommon3dDlgs,uNumPadDlg,uNumSelectDlg,uComplexDlg,
   uKeyboardDlg,uDlg3dTextures;
 
 
@@ -25,6 +25,7 @@ uses
     TTron = Class(tObject)
     procedure KillWorldAni(sender:tObject);
     procedure KillBorg(sender:tObject);
+    procedure KillComplex(sender:tObject);
     procedure KillConfirm(sender:tObject;aYesNo:integer);
     procedure KillInfo(sender:tObject);
     procedure KillGetNumDone(sender:tObject;Selected:integer);
@@ -39,6 +40,7 @@ uses
 
     procedure InitWorldAni;
     procedure InitBorg;
+    procedure ShowComplex(sender:tObject);
     procedure ShowConfirm(sender:tObject);
     procedure ShowInfo(sender:tObject);
     procedure GetNum(sender:tObject);
@@ -61,6 +63,7 @@ var
   NumPadDlg:TDlgNumPad;
   NumSelDlg:TDlgNumSel;
   KeyboardDlg:tDlgKeyboard;
+  ComplexDlg:TComplexDlg;
   DlgUp:Boolean;
   Tron:TTron;
 
@@ -178,6 +181,50 @@ var
               Scene2.CleanUp;
               Scene2.Free;
               Scene2:=nil;
+             end);
+         end).Start;
+      end;
+ end;
+
+
+ procedure ShowComplex(sender: TObject);
+ var
+ newx,newy:single;
+ begin
+
+   if not Assigned(ComplexDlg) then
+      begin
+       newx:=(MainFrm.ClientWidth/2);
+       newy:=(MainFrm.ClientHeight/2);
+      ComplexDlg:=tComplexDlg.Create(MainFrm,DlgMaterial,MainFrm.CLientwidth,MainFrm.Clientheight,newx,newy);
+      ComplexDlg.Parent:=MainFrm;
+      ComplexDlg.Position.Z:=-1;
+      ComplexDlg.OnDone:=Tron.KillComplex;
+      ComplexDlg.OnCancel:=Tron.KillComplex;
+      //ComplexDlg.Opacity:=0.95;
+      DlgUp:=true;
+      end;
+
+ end;
+
+  procedure TTron.KillComplex(sender: TObject);
+ begin
+
+
+   if Assigned(ComplexDlg) then
+      begin
+        ComplexDlg.Visible:=false;
+       TThread.CreateAnonymousThread(
+        procedure
+         begin
+          TThread.Queue(nil,
+           procedure
+            begin
+              ComplexDlg.CleanUp;
+              ComplexDlg.Free;
+              ComplexDlg:=nil;
+              DlgUp:=False;
+              MainFrm.InitScene1;
              end);
          end).Start;
       end;

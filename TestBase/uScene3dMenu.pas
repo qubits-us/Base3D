@@ -591,7 +591,7 @@ begin
   case keyNum of
   0:result:='Scenes';
   1:result:='Borg';
-  2:result:='World';
+  2:result:='Complex';
   3:result:='Close';
   4:result:='Dialogs';
   5:result:='Confirm';

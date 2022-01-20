@@ -15,7 +15,8 @@ uses
   uNumSelectDlg in '..\common\uNumSelectDlg.pas',
   uInertiaTimer in '..\common\uInertiaTimer.pas',
   uDlg3dTextures in '..\common\uDlg3dTextures.pas',
-  uGlobs in 'uGlobs.pas';
+  uGlobs in 'uGlobs.pas',
+  uComplexDlg in 'uComplexDlg.pas';
 
 {$R *.res}
 

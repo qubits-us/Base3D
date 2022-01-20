@@ -218,7 +218,7 @@ procedure TMainFrm.Scene1Click(Sender: TObject; aBtnNum:integer);
 
        case aBtnNum of
        1:InitBorg;
-       2:InitWorldAni;
+       2:ShowComplex(self);
        5:ShowConfirm(nil);
        6:ShowInfo(nil);
        8:GetNum(nil);
@@ -302,7 +302,7 @@ procedure TMainFrm.Scene2Click(Sender: TObject; aBtnNum:integer);
 
        case aBtnNum of
        1:InitBorg;
-       2:InitWorldAni;
+       2:ShowComplex(self);
        5:ShowConfirm(nil);
        6:ShowInfo(nil);
        8:GetNum(nil);
