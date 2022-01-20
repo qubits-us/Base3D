@@ -156,6 +156,8 @@ fBtnTexture:TTextureMaterialSource;
 fBitmapBtn:TBitmap;
 fText:String;
 fLabelTxt:String;
+fTextVAlign:TVerticalAlignment;
+fLabelAlign:TAlignment;
 fFontSize:Single;
 fLblSize:Single;
 fTxtColor:TAlphaColor;
@@ -176,6 +178,7 @@ procedure  CleanUp;
 procedure DrawText;
 published
 property Text:string read fText write SetText;
+property TextVAlign:TVerticalAlignment read fTextVAlign write fTextVAlign;
 property LabelText:string read fLabelTxt write SetLabelTxt;
 property FontSize:single read fFontSize write fFontSize;
 property TextColor:TAlphaColor read fTxtColor write fTxtColor;
@@ -183,8 +186,7 @@ property LabelColor:TAlphaColor read fLblColor write fLblColor;
 property LabelSize:single read fLblSize write fLblSize;
 property TextFixed:boolean read fTxtFixed write fTxtFixed;
 property LabelFixed:boolean read fLblFixed write fLblFixed;
-
-
+property LabelAlignment:tAlignment read fLabelAlign write fLabelAlign;
 property KeyNum:integer read fKeyNum write fKeyNum;
 property KeyLabel:string read fLabel write SetLabel;
 property RecordID:integer read fRecID write fRecID;
@@ -642,6 +644,9 @@ inherited Create(aOwner);
    fLblFixed:=false;
    fLblColor:=claBlack;
    fTxtColor:=claBlack;
+   fLabelAlign:=TAlignment.taLeftJustify;
+   fTextVAlign:=TVerticalAlignment.taVerticalCenter;
+
    fLblSize:=0;
    fFontSize:=12;
 
@@ -863,8 +868,14 @@ begin
            aRect:=TRectF.Create(aGap,Trunc((h/2)-th),w-agap,Trunc((h/2)+th));
            tmpBmp.Canvas.BeginScene;
            if fText<>'' then
-           tmpBmp.Canvas.FillText(aRect, fText, false, 100,
-                [], TTextAlign.Center, TTextAlign.Center);
+              begin
+              if fTextVAlign=tVerticalAlignment.taAlignTop then
+               tmpBmp.Canvas.FillText(aRect, fText, false, 1,[], TTextAlign.Center, TTextAlign.Leading) else
+              if fTextVAlign=tVerticalAlignment.taVerticalCenter then
+               tmpBmp.Canvas.FillText(aRect, fText, false, 1,[], TTextAlign.Center, TTextAlign.Center) else
+              if fTextVAlign=tVerticalAlignment.taAlignBottom then
+               tmpBmp.Canvas.FillText(aRect, fText, false, 1,[], TTextAlign.Center, TTextAlign.Trailing);
+              end;
 
            tmpBmp.Canvas.Font.Size:=ls;
            th:=tmpBmp.Canvas.TextHeight(fLabelTxt);
@@ -873,8 +884,14 @@ begin
 
 
            if fLabelTxt<>'' then
-           tmpBmp.Canvas.FillText(aRect, fLabelTxt, false, 100,
-                [], TTextAlign.Leading, TTextAlign.Leading);
+             begin
+             if fLabelAlign=TAlignment.taLeftJustify then
+              tmpBmp.Canvas.FillText(aRect, fLabelTxt, false, 1,[], TTextAlign.Leading, TTextAlign.Leading) else
+             if fLabelAlign=TAlignment.taCenter then
+              tmpBmp.Canvas.FillText(aRect, fLabelTxt, false, 1,[], TTextAlign.Center, TTextAlign.Leading) else
+             if fLabelAlign=TAlignment.taRightJustify then
+              tmpBmp.Canvas.FillText(aRect, fLabelTxt, false, 1,[], TTextAlign.Trailing, TTextAlign.Leading);
+             end;
 
            tmpBmp.Canvas.EndScene;
 
