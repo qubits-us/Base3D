@@ -94,7 +94,7 @@ fCleanedUp:=false;
   fIm.HitTest:=false;
   fIm.Position.X:=0;
   fIm.Position.Y:=0;
-  fIm.Position.Z:=0;
+  fIm.Position.Z:=-2;
   fIm.Parent:=self;
  // fIm.Opacity:=0.85;
      tmpBitmap.Free;
@@ -154,7 +154,7 @@ if SectionHeight>(aButtonWidth+aColGap) then
     fKeys[i].Projection:=TProjection.Screen;
     fKeys[i].Parent:=self;
     fkeys[i].Tag:=i+1;
-    fKeys[i].Position.Z:=0;
+    fKeys[i].Position.Z:=-2;
     fKeys[i].Opacity:=0.95;
     fkeys[i].MaterialSource:=fMat.Large.Button;
  //   fkeys[i].RectButton.MaterialBackSource:=fMat.tmButtons.mtButton;

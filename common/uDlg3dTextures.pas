@@ -330,7 +330,6 @@ var
   bBrush:TBrush;
   fColor:TAlphaColorRec;
   aColGap,aRowGap,nCorner:single;
- // aMatrix:TMatrix;
  aScale:single;
 begin
 
@@ -372,12 +371,8 @@ if aCorner<nCorner then nCorner:=aCorner;
 
   tmpBitmap:=tBitmap.Create(Trunc(aWidth),Trunc(aHeight));
   tmpBitmap.Clear(claNull);
- // aMatrix:=tmpBitmap.Canvas.Matrix;//save the matrix
-  //tmpBitmap.Canvas.Sc
 
   tmpBitmap.Canvas.BeginScene;
- // tmpBitmap.Canvas.SetMatrix(tmpBitmap.Canvas.Matrix*TMatrix.CreateScaling(aScale, aScale));
- // aRect:=TRectF.Create(0,0,Trunc(tmpBitmap.Width),Trunc(tmpBitmap.Height));
  if aBorder>0 then
     begin
     tmpBitmap.Canvas.FillRect(aRect,nCorner,nCorner,AllCorners,1,bBrush,TCornerType.Round);
@@ -388,16 +383,6 @@ if aCorner<nCorner then nCorner:=aCorner;
     end;
   tmpBitmap.Canvas.FillRect(aRect,nCorner,nCorner,AllCorners,1,aBrush,TCornerType.Round);
   tmpBitmap.Canvas.EndScene;
-  {
-  tmpBitmap.Canvas.SetMatrix(aMatrix);
-  aRect.Left:=0;
-  aRect.Top:=0;
-  aRect.Right:=tmpBitmap.Width;
-  aRect.Bottom:=tmpBitmap.Height;
-  result.Canvas.BeginScene;
-  result.Canvas.DrawBitmap(tmpBitmap,aRect,bRect,1,false);
-  result.Canvas.EndScene;
-  }
   result.Assign(tmpBitmap);
   tmpBitmap.Free;
   aBrush.Free;
