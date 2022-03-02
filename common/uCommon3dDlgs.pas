@@ -326,12 +326,12 @@ begin
 
   aColGap:=10;
   aRowGap:=20;
-  aButtonWidth:=Trunc(aWidth/4);
+  aButtonWidth:=(aWidth/4);
 
 
   fMat.FontSize:=22;
 
-  ah:=Trunc(Height / 3);// devide height by number of rows..
+  ah:=(Height / 3);// devide height by number of rows..
   SectionHeight:=ah-aRowGap;
 
 
@@ -354,10 +354,8 @@ begin
 
 
 
-     //newX:=(aWidth/2);//center
-     //NewY:=(aHeight/3);//top
      newX:=0;//(aWidth/2);//center
-     NewY:=Round(((Height/2)*-1)+SectionHeight+aRowGap);
+     NewY:=(((Height/2)*-1)+SectionHeight+aRowGap);
 
 
     fTxt:=TDlgText.Create(self,aWidth-20,(SectionHeight*2),newx,newy);
@@ -378,8 +376,8 @@ begin
 
 
 
-    newy:=Round((Height/2)-((SectionHeight/2)+aRowGap));
-    newx:=Round((Width/2)-((aButtonWidth/2)+aColGap));
+    newy:=((Height/2)-((SectionHeight/2)+aRowGap));
+    newx:=((Width/2)-((aButtonWidth/2)+aColGap));
 
     fButton:=TDlgButton.Create(self,aButtonwidth,SectionHeight,newx,newy);
     fButton.Projection:=TProjection.Screen;
